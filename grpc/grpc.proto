@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package slbuk.grpc;
+option go_package="github.com/mgalagan/slbuk/grpc";
+
+import "google/api/annotations.proto";
+
+service SlbUkEntities {
+    rpc GetEntities(Empty) returns (GetEntityResponse) {
+        option (google.api.http) = {
+            get:"/entities"
+       };        
+    }    
+
+    rpc GetEntitiesStream(Empty) returns (stream Entity) {}
+}
+
+message GetEntityResponse {
+    repeated Entity Entities = 1;
+}
+
+message Entity {
+    string id = 1;
+    string name = 2;
+}
+
+// Please implement google/protobuf/empty.proto if Empty should be used more than once
+message Empty {}
