@@ -12,7 +12,7 @@ require (
 	github.com/go-openapi/strfmt v0.20.0
 	github.com/go-openapi/swag v0.19.14
 	github.com/jessevdk/go-flags v1.4.0
-	github.com/mgalagan/slbuk/grpc v0.0.0-00010101000000-000000000000 // indirect
+	github.com/mgalagan/slbuk/grpc v0.0.0-00010101000000-000000000000
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777
-	google.golang.org/grpc v1.35.0 // indirect
+	google.golang.org/grpc v1.35.0
 )

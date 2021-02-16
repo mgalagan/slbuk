@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+docker build -f Dockerfile.server -t slbukserver:latest .
+docker build -f Dockerfile.gate -t slbukgate:latest .
+

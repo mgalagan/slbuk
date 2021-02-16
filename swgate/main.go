@@ -28,7 +28,6 @@ func convertToSwagger(response *grpcpb.GetEntityResponse) *models.GrpcGetEntityR
 
 func main() {
 	var (
-		gatewayHost       = flag.String("host", "localhost", "Gateway host")
 		gatewayPort       = flag.Int("port", 9002, "Gateway port")
 		grpcServerAddress = flag.String("grpc-server-address", "localhost:9001", "gRPC server server format host:port")
 	)
@@ -59,7 +58,6 @@ func main() {
 
 	server := restapi.NewServer(api)
 	defer server.Shutdown()
-	server.Host = *gatewayHost
 	server.Port = *gatewayPort
 
 	if err := server.Serve(); err != nil {

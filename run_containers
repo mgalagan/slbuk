@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+docker network create slbuknet
+docker run --rm -d -p 9001:9001 --name slbukserver --net slbuknet slbukserver:latest
+docker run --rm -d -p 9002:9002 --name slbukgate --net slbuknet slbukgate:latest

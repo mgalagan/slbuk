@@ -1,0 +1,18 @@
+FROM golang:1.15.8-alpine3.13
+
+ENV CGO_ENABLED=0 \
+    GOOS=linux \
+    GOARCH=amd64
+
+WORKDIR /build
+
+COPY . .
+
+WORKDIR /build/swgate
+
+RUN go mod download
+RUN go build -o swgate .
+
+EXPOSE 9002
+
+CMD ["/build/swgate/swgate", "--port=9002", "--grpc-server-address=slbukserver:9001"]

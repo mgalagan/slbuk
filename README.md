@@ -36,11 +36,23 @@ cd gateway; go run main.go --gateway-address="localhost:9002" --grpc-server-addr
 "gateway" folder contains swagger gRPC to REST gateway code.
 
 ### Params:
-Use --host to set gateway host. Default is "localhost"
 Use --port to set gateway host. Default is "9002"
 Use --grpc-server-address to set grpc server address. Default is "localhost:9001".
 
 ### Example usage:
 ```bash
-cd swgate; go run main.go --host="localhost" --port="9002" --grpc-server-address="localhost:9001"
+cd swgate; go run main.go --port="9002" --grpc-server-address="localhost:9001"
+```
+
+## Generate docker images
+### Command
+```bash
+./gen_images
+```
+Docker generates two images slbukserver:latest and slbukgate:latest
+
+## Run
+### Command
+```bash
+./run_containers
 ```

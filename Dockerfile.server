@@ -1,0 +1,18 @@
+FROM golang:1.15.8-alpine3.13
+
+ENV CGO_ENABLED=0 \
+    GOOS=linux \
+    GOARCH=amd64
+
+WORKDIR /build
+
+COPY . .
+
+WORKDIR /build/server
+
+RUN go mod download
+RUN go build -o grpsserver .
+
+EXPOSE 9001
+
+CMD ["/build/server/grpsserver", "--server-address=:9001"]

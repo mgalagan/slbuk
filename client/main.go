@@ -15,14 +15,14 @@ func main() {
 	serverAddr := flag.String("server-address", "localhost:9001", "The server address in the format of host:port")
 	flag.Parse()
 
-	conn, err := grpc.Dial(*serverAddr, grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(*serverAddr, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("fail to dial: %v", err)
 	}
 	defer conn.Close()
 	client := grpcpb.NewSlbUkEntitiesClient(conn)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Minute)
+	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 	defer cancel()
 
 	stream, err := client.GetEntitiesStream(ctx, &grpcpb.Empty{})

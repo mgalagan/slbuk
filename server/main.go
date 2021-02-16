@@ -48,7 +48,7 @@ func NewServer() *SlbUkEntitiesServer {
 }
 
 func main() {
-	serverAddress := flag.String("server-address", "localhost:9001", "The server port, format host:port")
+	serverAddress := flag.String("server-address", ":9001", "The server port, format host:port")
 	flag.Parse()
 
 	lis, err := net.Listen("tcp", *serverAddress)
